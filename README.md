@@ -6,7 +6,7 @@ This repository contains the source code generated using [Lovable.dev](https://l
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Create a Supabase account
 
@@ -51,14 +51,34 @@ More info: [Custom Domain Docs](https://docs.lovable.dev/tips-tricks/custom-doma
 
 ---
 
-### 4. Connect GitHub & Run Locally
+### 4. Customize Emails & Custom Email SMTP 
 
-#### Option A: Use GitHub + Local Dev
+1. In **Supabase**:
+   - Navigate to **Auth > Email Templates**
+   - Edit the following templates:
+     - **Confirm signup**  
+     - **Password reset**  
+     - **Magic link login**  
+     - **Invite user**
+
+2. For custom email, set up **Cloudflare Email Routing**:
+   - Connect your domain to CloudFlare's nameservers
+   - Then, go to **Cloudflare Email Routing**
+   - Route **noreply@smartreceipts.site** → your real inbox (e.g. Google email)
+
+4. Add SMTP settings in **Supabase > Auth > SMTP Settings**:
+   - **SMTP host** (e.g. smtp.mailgun.org or smtp.resend.com)  
+   - **SMTP port** (e.g. 587 or 465)  
+   - **Sender address** (e.g. noreply@smartreceipts.site)  
+   - **SMTP username and password** from resender/mailgun
+
+### 5. Connect GitHub & Run Locally
 
 ```bash
 # Clone your GitHub repo
 git clone <YOUR_REPO_URL>
 cd <YOUR_PROJECT_FOLDER>
+
 
 # Install dependencies
 npm install
